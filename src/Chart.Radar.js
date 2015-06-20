@@ -280,7 +280,7 @@
 					fillColor : dataset.fillColor,
 					strokeColor : dataset.strokeColor,
 					pointColor : dataset.pointColor,
-					pointStrokeColor : dataset.pointStrokeColor,
+					pointStrokeColor : dataset.pointStrokeColor
 				});
 
 				helpers.each(dataset.data,function(dataPoint,index){

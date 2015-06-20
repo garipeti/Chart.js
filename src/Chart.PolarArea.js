@@ -201,7 +201,7 @@
 						fillColor: segment.color,
 						highlightColor: segment.highlight || segment.color,
 						label: segment.label,
-						value: segment.value,
+						value: segment.value
 					});
 				},this);
 			} else{

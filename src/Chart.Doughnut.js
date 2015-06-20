@@ -32,7 +32,10 @@
 		animateScale : false,
 
 		//String - A legend template
-		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
+    
+		// Boolean - Wether to show value for each segment permanently
+		showValues: false
 
 	};
 
@@ -55,7 +58,8 @@
 			this.SegmentArc = Chart.Arc.extend({
 				ctx : this.chart.ctx,
 				x : this.chart.width/2,
-				y : this.chart.height/2
+				y : this.chart.height/2,
+				chartOptions: this.options
 			});
 
 			//Set up tooltip events on the chart

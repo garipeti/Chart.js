@@ -1320,6 +1320,16 @@
 			if (this.showStroke){
 				ctx.stroke();
 			}
+            
+			// draw label on the arc
+			if (this.chartOptions.showValues && this.circumference > 0.2) {
+				ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
+				ctx.fillStyle = this.strokeColor;
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				var labelPosition = this.tooltipPosition();
+				ctx.fillText(this.value, labelPosition.x, labelPosition.y, 200);
+			}
 		}
 	});
 
@@ -1355,6 +1365,16 @@
 			ctx.fill();
 			if (this.showStroke){
 				ctx.stroke();
+			}
+            
+			// draw label on the rectangle
+			if (this.chartOptions.showValues) {
+				ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
+				ctx.fillStyle = this.strokeColor;
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				var labelYPosition = this.height() > 40 || this.height() < 20 ? this.base - 30 : this.y - 10;
+				ctx.fillText(this.value, this.tooltipPosition().x, labelYPosition, 200);
 			}
 		},
 		height : function(){

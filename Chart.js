@@ -1321,15 +1321,15 @@
 				ctx.stroke();
 			}
             
-            // draw label on the arc
-            if (this.chartOptions.showValues && this.circumference > 0.2) {
-                ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
-                ctx.fillStyle = this.strokeColor;
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                var labelPosition = this.tooltipPosition();
-                ctx.fillText(this.value, labelPosition.x, labelPosition.y, 200);
-            }
+			// draw label on the arc
+			if (this.chartOptions.showValues && this.circumference > 0.2) {
+				ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
+				ctx.fillStyle = this.strokeColor;
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				var labelPosition = this.tooltipPosition();
+				ctx.fillText(this.value, labelPosition.x, labelPosition.y, 200);
+			}
 		}
 	});
 
@@ -1367,16 +1367,15 @@
 				ctx.stroke();
 			}
             
-            // draw label on the rectangle
+			// draw label on the rectangle
 			if (this.chartOptions.showValues) {
-                ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
-                ctx.fillStyle = this.strokeColor;
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                var labelPosition = this.tooltipPosition();
-                var labelYPosition = this.height() > 40 || this.height() < 20 ? this.base - 30 : this.y - 10;
-                ctx.fillText(this.value, labelPosition.x, labelYPosition, 200);
-            }
+				ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				var labelYPosition = this.height() > 40 || this.height() < 20 ? this.base - 30 : this.y - 10;
+				ctx.fillStyle = this.height() > 40 ? this.strokeColor : this.fillColor;
+				ctx.fillText(this.value, this.tooltipPosition().x, labelYPosition, 200);
+			}
 		},
 		height : function(){
 			return this.base - this.y;
@@ -2262,9 +2261,9 @@
 
 		//String - A legend template
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-            
-        // Boolean - Wether to show value for each bar permanently
-        showValues: false
+		
+		// Boolean - Wether to show value for each bar permanently
+		showValues: false
 
 	};
 
@@ -2324,7 +2323,7 @@
 				strokeWidth : this.options.barStrokeWidth,
 				showStroke : this.options.barShowStroke,
 				ctx : this.chart.ctx,
-                chartOptions: this.options
+				chartOptions: this.options
 			});
 
 			//Iterate through each of the datasets, and build this into a property of the chart
@@ -2376,7 +2375,7 @@
 				helpers.extend(this.datasets[datasetIndex], {
 					label : dataset.label || null,
 					fillColor : dataset.fillColor,
-					strokeColor : dataset.strokeColor,
+					strokeColor : dataset.strokeColor
 				});
 
 				helpers.each(dataset.data,function(dataPoint,index){
@@ -2590,9 +2589,9 @@
 
 		//String - A legend template
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
-            
-        // Boolean - Wether to show value for each segment permanently
-        showValues: false
+    
+		// Boolean - Wether to show value for each segment permanently
+		showValues: false
 
 	};
 
@@ -2616,7 +2615,7 @@
 				ctx : this.chart.ctx,
 				x : this.chart.width/2,
 				y : this.chart.height/2,
-                chartOptions: this.options
+				chartOptions: this.options
 			});
 
 			//Set up tooltip events on the chart
@@ -3384,7 +3383,7 @@
 						fillColor: segment.color,
 						highlightColor: segment.highlight || segment.color,
 						label: segment.label,
-						value: segment.value,
+						value: segment.value
 					});
 				},this);
 			} else{
@@ -3733,7 +3732,7 @@
 					fillColor : dataset.fillColor,
 					strokeColor : dataset.strokeColor,
 					pointColor : dataset.pointColor,
-					pointStrokeColor : dataset.pointStrokeColor,
+					pointStrokeColor : dataset.pointStrokeColor
 				});
 
 				helpers.each(dataset.data,function(dataPoint,index){

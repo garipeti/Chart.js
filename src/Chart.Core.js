@@ -1370,10 +1370,10 @@
 			// draw label on the rectangle
 			if (this.chartOptions.showValues) {
 				ctx.font = fontString(this.chartOptions.tooltipFontSize, this.chartOptions.tooltipFontStyle, this.chartOptions.tooltipFontFamily);
-				ctx.fillStyle = this.strokeColor;
 				ctx.textAlign = "center";
 				ctx.textBaseline = "middle";
 				var labelYPosition = this.height() > 40 || this.height() < 20 ? this.base - 30 : this.y - 10;
+				ctx.fillStyle = this.height() > 40 ? this.strokeColor : this.fillColor;
 				ctx.fillText(this.value, this.tooltipPosition().x, labelYPosition, 200);
 			}
 		},
